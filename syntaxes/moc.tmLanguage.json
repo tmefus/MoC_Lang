@@ -1,0 +1,194 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "MoC",
+  "scopeName": "source.moc",
+  "fileTypes": [".moc"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#types" },
+    { "include": "#operators" },
+    { "include": "#builtin-functions" },
+    { "include": "#builtin-modules" },
+    { "include": "#function-calls" },
+    { "include": "#member-access" },
+    { "include": "#identifiers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.number-sign.moc",
+          "match": "#.*$"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.moc",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.moc",
+              "match": "\\\\(n|t|r|\\\\|\"|')"
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.float.moc",
+          "match": "\\b\\d+\\.\\d+\\b"
+        },
+        {
+          "name": "constant.numeric.integer.moc",
+          "match": "\\b\\d+\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.moc",
+          "match": "\\b(if|elif|else|for|while|return|break|continue|when)\\b"
+        },
+        {
+          "name": "keyword.other.moc",
+          "match": "\\b(fun|data|enum|vart|in|self|use|pub|to)\\b"
+        },
+        {
+          "name": "keyword.operator.logical.moc",
+          "match": "\\b(and|or|not)\\b"
+        },
+        {
+          "name": "keyword.other.error.moc",
+          "match": "\\berror\\b"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "storage.type.moc",
+          "match": "\\b(int|float|str|byte|bool)\\b"
+        },
+        {
+          "name": "storage.type.generic.moc",
+          "begin": "\\b(list|map)\\b",
+          "beginCaptures": {
+            "1": { "name": "storage.type.generic.moc" }
+          },
+          "end": "(?![\\[\\w])",
+          "patterns": [
+            {
+              "name": "punctuation.definition.typeparameters.begin.moc",
+              "match": "\\["
+            },
+            {
+              "name": "punctuation.definition.typeparameters.end.moc",
+              "match": "\\]"
+            },
+            {
+              "name": "storage.type.moc",
+              "match": "\\b(int|float|str|byte|bool)\\b"
+            },
+            {
+              "name": "entity.name.type.moc",
+              "match": "\\b[A-Z]\\w*\\b"
+            },
+            {
+              "name": "punctuation.separator.comma.moc",
+              "match": ","
+            }
+          ]
+        },
+        {
+          "name": "storage.type.error.moc",
+          "match": "!"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.assignment.moc",
+          "match": "(:=|\\+=|-=|\\*=|/=|%=|=)"
+        },
+        {
+          "name": "keyword.operator.comparison.moc",
+          "match": "(==|!=|<=|>=|<|>)"
+        },
+        {
+          "name": "keyword.operator.arithmetic.moc",
+          "match": "(\\+|-|\\*|/|%)"
+        },
+        {
+          "name": "keyword.operator.range.moc",
+          "match": "\\.\\."
+        },
+        {
+          "name": "keyword.operator.error.moc",
+          "match": "\\?"
+        }
+      ]
+    },
+    "builtin-functions": {
+      "patterns": [
+        {
+          "name": "support.function.builtin.moc",
+          "match": "\\b(print|len|read_file)\\b"
+        }
+      ]
+    },
+    "builtin-modules": {
+      "patterns": [
+        {
+          "name": "support.module.moc",
+          "match": "\\b(math|type)\\b"
+        },
+        {
+          "name": "support.function.moc",
+          "match": "\\b(math\\.pow|math\\.sum|type\\.isalpha|type\\.isdigit|type\\.tolower|type\\.toupper)\\b"
+        }
+      ]
+    },
+    "function-calls": {
+      "patterns": [
+        {
+          "name": "entity.name.function.moc",
+          "match": "\\b([a-zA-Z_]\\w*)(?=\\()"
+        }
+      ]
+    },
+    "member-access": {
+      "patterns": [
+        {
+          "name": "keyword.operator.access.moc",
+          "match": "\\."
+        },
+        {
+          "name": "variable.other.member.moc",
+          "match": "(?<=\\.)[a-zA-Z_]\\w*"
+        }
+      ]
+    },
+    "identifiers": {
+      "patterns": [
+        {
+          "name": "constant.language.moc",
+          "match": "\\b(true|false)\\b"
+        },
+        {
+          "name": "variable.other.moc",
+          "match": "\\b[a-zA-Z_]\\w*\\b"
+        }
+      ]
+    }
+  }
+}
