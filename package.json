@@ -3,7 +3,12 @@
   "displayName": "MoC Language",
   "description": "Syntax highlighting for MoC language",
   "version": "0.1.1",
+  "icon": "icon.png",
   "publisher": "mefus",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmefus/moc-lang"
+  },
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -13,7 +18,11 @@
       "id": "moc",
       "aliases": ["MoC", "moc"],
       "extensions": [".moc"],
-      "configuration": "./language-configuration.json"
+      "configuration": "./language-configuration.json",
+      "icon": {
+          "light": "./icons/moc.svg",
+          "dark": "./icons/moc.svg"
+        }
     }],
     "grammars": [{
       "language": "moc",
