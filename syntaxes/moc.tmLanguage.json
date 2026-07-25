@@ -60,7 +60,7 @@
         },
         {
           "name": "keyword.other.moc",
-          "match": "\\b(fun|data|enum|vart|in|self|use|pub|to)\\b"
+          "match": "\\b(let|const|fun|data|enum|in|use|pub|to|sig|do|catch|back)\\b"
         },
         {
           "name": "keyword.operator.logical.moc",
@@ -76,7 +76,7 @@
       "patterns": [
         {
           "name": "storage.type.moc",
-          "match": "\\b(int|float|str|byte|bool)\\b"
+          "match": "\\b(int|float|str|byte|bool|unit)\\b"
         },
         {
           "name": "storage.type.generic.moc",
@@ -118,7 +118,7 @@
       "patterns": [
         {
           "name": "keyword.operator.assignment.moc",
-          "match": "(:=|\\+=|-=|\\*=|/=|%=|=)"
+          "match": "(\\+=|-=|\\*=|/=|%=|=)"
         },
         {
           "name": "keyword.operator.comparison.moc",
@@ -129,32 +129,8 @@
           "match": "(\\+|-|\\*|/|%)"
         },
         {
-          "name": "keyword.operator.range.moc",
-          "match": "\\.\\."
-        },
-        {
           "name": "keyword.operator.error.moc",
           "match": "\\?"
-        }
-      ]
-    },
-    "builtin-functions": {
-      "patterns": [
-        {
-          "name": "support.function.builtin.moc",
-          "match": "\\b(print|len|read_file)\\b"
-        }
-      ]
-    },
-    "builtin-modules": {
-      "patterns": [
-        {
-          "name": "support.module.moc",
-          "match": "\\b(math|type)\\b"
-        },
-        {
-          "name": "support.function.moc",
-          "match": "\\b(math\\.pow|math\\.sum|type\\.isalpha|type\\.isdigit|type\\.tolower|type\\.toupper)\\b"
         }
       ]
     },
